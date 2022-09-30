@@ -25,13 +25,7 @@ public class FruitDaoImpl implements FruitDao
 	@Transactional
 	public List<FruitModel> getAllFruits()
 	{
-		List<FruitModel> fruitModels = new ArrayList<>();
-		Iterable<FruitModel> countriesIterable = fruitRepository.findAll();
-		for (final FruitModel country : countriesIterable)
-		{
-			fruitModels.add(country);
-		}
-		return fruitModels;
+		return fruitRepository.findAll();
 	}
 
 	@Transactional

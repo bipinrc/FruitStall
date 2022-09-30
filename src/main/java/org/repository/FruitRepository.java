@@ -1,9 +1,9 @@
 package org.repository;
 
 import org.model.FruitModel;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface FruitRepository extends CrudRepository<FruitModel,Integer>
+public interface FruitRepository extends JpaRepository<FruitModel,Integer>
 {
 }
