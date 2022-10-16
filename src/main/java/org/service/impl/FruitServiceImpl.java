@@ -7,13 +7,13 @@ import org.apache.log4j.Logger;
 import org.dao.FruitDao;
 import org.model.FruitModel;
 import org.service.FruitService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
+@Component("fruitService")
 public class FruitServiceImpl implements FruitService
 {
 	private static final Logger LOG = Logger.getLogger(FruitServiceImpl.class);
-	@Autowired
 	private FruitDao fruitDao;
 
 	@Override
@@ -50,5 +50,15 @@ public class FruitServiceImpl implements FruitService
 			LOG.error("No fruits for the ID : " + id);
 			throw new IllegalArgumentException("No fruits for the provided ID!!!!!");
 		}
+	}
+
+	public FruitDao getFruitDao()
+	{
+		return fruitDao;
+	}
+
+	public void setFruitDao(final FruitDao fruitDao)
+	{
+		this.fruitDao = fruitDao;
 	}
 }

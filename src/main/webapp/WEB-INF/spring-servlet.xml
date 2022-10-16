@@ -15,11 +15,13 @@
 
 	<!-- Provide support for component scanning -->
 	<context:component-scan base-package="org.controller"/>
-
+	<context:component-scan base-package="org.service"/>
 	<!--Provide support for conversion, formatting and validation -->
 	<mvc:annotation-driven/>
 
-	<bean id="fruitService" class="org.service.impl.FruitServiceImpl"/>
+	<bean id="fruitService" class="org.service.impl.FruitServiceImpl">
+		<property name="fruitDao" ref="fruitDao"/>
+	</bean>
 	<bean id="fruitDao" class="org.dao.impl.FruitDaoImpl"/>
 
 	<jpa:repositories base-package="org.repository" entity-manager-factory-ref="emf"/>
